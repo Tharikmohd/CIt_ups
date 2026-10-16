@@ -36,7 +36,7 @@ namespace CItups
             {
                 for(int j = 0; j < col; j++)
                 {
-                    Console.Write($"Enter the row{i} and column{j} value : ");
+                    Console.Write($"Enter the value of [{i},{j}] : ");
                     Twodimension[i,j] = Convert.ToInt32(Console.ReadLine());
 
                     
@@ -55,6 +55,36 @@ namespace CItups
 
                 Console.WriteLine();
             }
+
+            int max = Twodimension[0, 0];
+
+            for(int i=0; i<row;i++)
+            {
+                for(int j =0; j<col; j++)
+                {
+                    if (Twodimension[i,j] > max)
+                    {
+                        max = Twodimension[i,j];
+                    }
+                }
+            }
+
+            Console.WriteLine("Maximum value : " + max);
+
+            int min = Twodimension[0, 0];
+
+            for(int i=0; i<Twodimension.GetLength(0); i++)
+            {
+                for(int j =0; j<Twodimension.GetLength(1); j++)
+                {
+                    if (Twodimension[i,j]<min)
+                    {
+                        min = Twodimension[i,j];
+                    }
+                }
+            }
+
+            Console.WriteLine("minimum value : " + min);
 
 
         }

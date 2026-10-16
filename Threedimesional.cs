@@ -20,6 +20,8 @@ namespace CItups
 
             int[,,] threedim = new int[layer, row, col];
 
+            int sum = 0;
+
             for(int i=0; i<threedim.GetLength(0); i++)
             {
                 for(int j = 0; j < threedim.GetLength(1); j++)
@@ -28,9 +30,13 @@ namespace CItups
                     {
                         Console.Write($"Enter the value of [{i},{j},{k}] : ");
                         threedim[i, j, k] = Convert.ToInt32(Console.ReadLine());
+
+                        sum += threedim[i,j,k];
                     }
                 }
             }
+
+            Console.WriteLine(sum);
 
             Console.WriteLine("3d Array matrix");
 
@@ -47,6 +53,25 @@ namespace CItups
                 }
                 Console.WriteLine();
             }
+
+            int max = threedim[0, 0, 0];
+
+            for(int i =0; i<threedim.GetLength(0); i++)
+            {
+                for(int j=0; j<threedim.GetLength(1); j++)
+                {
+                    for(int k=0; k<threedim.GetLength(2); k++)
+                    {
+                        if (threedim[i,j,k] > max)
+                        {
+                            max = threedim[i, j, k];
+                        }
+                    }
+                }
+            }
+
+            Console.WriteLine("Larget value " + max);
+
         }
     }
 }
